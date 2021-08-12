@@ -39,8 +39,8 @@ def run_model():
 
 
     # This bit gets outputs from model or cheaty way from OUTPUTS var up top for expediency during testing
-#     outputs = get_model(data)
-    outputs = OUTPUTS
+    outputs = get_model(data)
+#     outputs = OUTPUTS
     
     
     print("within run_model:")
