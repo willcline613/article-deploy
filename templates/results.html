@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the title that appears in the browser tab.
+      Replace it with the title of your app
+    -->
+    <title>Categorize and Summarize Articles</title>
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <!--Important for readmore button-->
+    <style>
+        #more {display: none;}
+    </style>
+  </head>
+  <body style="background-color:black">
+    <div class="container">
+      <div class="jumbotron" style="background-color:#4FA79A">
+        <h1 class="display-4" style="color:#FFFBF0">Results</h1>
+      </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+                <h1 style="color:#FFFBF0"> Test Observation</h1>
+                <hr>
+                <h3 style="color:#FFFBF0"> {{headline}} </h3>
+                <p style="color:#FFFBF0"> By {{authors}} on {{publish_date}}.<p>
+                <!--Has read more button inside of article-->
+                <p style="color:#FFFBF0"> {{(" ").join(article.split()[:50])}}
+                    <span id="dots">...</span>
+                    <span id="more" style="display: none}">
+                    {{(" ").join(article.split()[50:])}}
+                    </span>
+                </p>
+                <!--Button for readmore of article-->
+                <button onclick="myFunction()" id="myBtn" style="background-color:#4FA79A; color:#FFFBF0">Read more</button>
+            </div>
+            <div class="col-md">
+                <h1 style="color:#FFA17A"> Our Model's Results</h1>
+                <hr>
+                <h3 style="color:#FFFBF0">Category</h3>
+                <p style="color:#FFA17A; font-size:28px;" > {{topic}} </p>
+                <h2 style="color:#FFFBF0">Summary</h2>
+                <p style="color:#FFA17A; font-size:23px;"> {{summary}} </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col" style="text-align: center;">
+            <!-- 
+              Replace this with something relevant, maybe a freshly-generated
+              matplotlib graph?
+            <img src="{{ url_for('static', filename='upward_sloping_chart.png') }}" 
+              alt="upward sloping chart" width="50%">
+          </div>
+        </div>
+        <hr>
+        -->
+        <div class="row">
+          <div class="col" style="text-align: center;">
+            <a href="/" style="color:#FFFBF0">Go back home</a>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+        
+    <script>
+    function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more"; 
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less"; 
+            moreText.style.display = "inline";
+            }
+        }
+    </script>
+  </body>
+</html>
