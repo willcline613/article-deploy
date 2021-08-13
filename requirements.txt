@@ -141,7 +141,6 @@ rsa==4.7.2
 sacremoses==0.0.43
 seaborn==0.11.0
 Send2Trash==1.5.0
-sip==4.19.13
 smart-open==5.1.0
 sniffio==1.2.0
 soupsieve==2.2.1
